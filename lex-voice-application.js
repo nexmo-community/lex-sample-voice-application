@@ -56,7 +56,7 @@ app.get('/answer', (req, res) => {
       {
         "action": "talk",
         "voiceName": "Joanna",
-        "text": "Hello, how may I help you?"
+        "text": "Please wait"
       }
       ,
       {
@@ -78,8 +78,7 @@ app.get('/answer', (req, res) => {
         "from": "12995550101",
         "eventType": "synchronous",
         "eventMethod": "POST",
-        "eventUrl": ["https://" + hostName + "/ws_event?orig_uuid=' + uuid"],
-        "answerUrl": ["https://" + hostName + "/ws_answer?orig_uuid=' + uuid"] // Not called with this type of flow here
+        "eventUrl": ["https://" + hostName + "/ws_event?orig_uuid=' + uuid"]
       }
     ]
   );
