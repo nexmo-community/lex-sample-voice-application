@@ -63,8 +63,8 @@ Go to [Your applications](https://dashboard.nexmo.com/applications), access an e
 Under Capabilities section (click on [Edit] if you do not see this section):
 
 Enable Voice
-- Under Event URL, select HTTP POST, and enter https://\<host\>:\<port\>/event (replace \<host\> and \<port\> with the public host name and if necessary public port of the server where your application is running)</br>
 - Under Answer URL, leave HTTP GET, and enter https://\<host\>:\<port\>/answer (replace \<host\> and \<port\> with the actual value as mentioned above)</br>
+- Under Event URL, select HTTP POST, and enter https://\<host\>:\<port\>/event (replace \<host\> and \<port\> with the public host name and if necessary public port of the server where your application is running)</br>
 - Click on [Generate public and private key] if you did not yet create or want new ones, save the private.key file in this application folder.</br>
 IMPORTANT: Do not forget to click on [Save changes] at the bottom of the screen if you have created a new key set.</br>
 - Link a phone number to this application if none has been linked to the application.
