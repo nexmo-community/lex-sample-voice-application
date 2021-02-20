@@ -88,7 +88,7 @@ You can customize that inital TTS played to Lex to correspond to your Lex bot pr
 
 The parameter `sensitivity` allows you to set the VAD (Voice Activity Detection) sensitivity from the most sensitive (value = 0) to the least sensitive (value = 3), this is an integer value.
 
-The path portion of the uri in "action": "connect" is the same as the path to the `PostContent` [endpoint within Lex](http://docs.aws.amazon.com/lex/latest/dg/API_PostContent.html) but with your server host address, e.g. `xxxxx.ngrok.io`. Therefore you should set your BOTNAME, ALIAS and USER details as part of this URI. You can get these details from your AWS Console after you set up a new instance of Lex.
+The path portion of the uri in "action": "connect" is the same as the path to the `PostContent` [endpoint within Lex](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) but with your server host address, e.g. `xxxxx.ngrok.io`. Therefore you should set your BOTNAME, ALIAS and USER details as part of this URI. You can get these details from your AWS Console after you set up a new instance of Lex.
 USER's value may be set to any value as needed by your own application logic.
 
 Within the "headers" section of the "endpoint" you must supply your `aws_key` and `aws_secret` that will be used to connect to Amazon Lex.
