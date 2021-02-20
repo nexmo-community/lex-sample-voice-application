@@ -1,6 +1,6 @@
 # Amazon Lex sample Voice API application
 
-Use this sample application using Vonage Voice API to connect to a Lex connector for voice interaction with a Lex Bot, including real time transcripts and sentiment analysis.
+Use this sample application using Vonage Voice API to connect to a Lex connector for voice interaction with a Lex bot, including real time transcripts and sentiment analysis.
 
 ## Amazon Lex access
 
@@ -8,7 +8,7 @@ In order to get started, you will need to have an [AWS account](http://aws.amazo
 
 Use an existing Amazon Lex bot or create a new one.
 
-You will need your Lex bot name, which can be found in the Settings -> General on your Amazon Lex bot page, as well as the Alias of the bot, which is located in Settings -> Aliases.
+You will need your Lex bot name, as well as the Alias of the bot, which is located in Settings -> Aliases (when your bot page is open).
 
 You will also need to know an active AWS Access Key ID and Secret Key pair.
 
