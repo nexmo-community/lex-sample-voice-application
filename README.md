@@ -155,7 +155,7 @@ git commit -am "initial"
 Deploy this application to Heroku from the command line using the Heroku CLI:
 
 ```bash
-heroku create \<myappname\>
+heroku create myappname
 ```
 
 On your Heroku dashboard where your application page is shown, click on `Settings` button,
