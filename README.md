@@ -86,8 +86,6 @@ You can customize that inital TTS played to Lex to correspond to your Lex bot pr
 - Transcript and sentiment scores will be received by this application in real time,</br>
 - When the caller hangs up, both phone call leg and websocket leg will be automatically terminated.
 
-You may look at the [range of voices available on Nexmo](https://docs.nexmo.com/voice/voice-api/ncco-reference#talk) and on Lex to select the same voice, so that it feels natural for the caller. (There is some overlap in the choice of voices available from both Nexmo and Lex.)
-
 The parameter `sensitivity` allows you to set the VAD (Voice Activity Detection) sensitivity from the most sensitive (value = 0) to the least sensitive (value = 3), this is an integer value.
 
 The path portion of the uri in "action": "connect" is the same as the path to the `PostContent` [endpoint within Lex](http://docs.aws.amazon.com/lex/latest/dg/API_PostContent.html) but with your server host address, e.g. `xxxxx.ngrok.io`. Therefore you should set your BOTNAME, ALIAS and USER details as part of this URI. You can get these details from your AWS Console after you set up a new instance of Lex.
