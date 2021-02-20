@@ -81,12 +81,10 @@ For the next steps, you will need:</br>
 ## Overview on how this sample Voice API application works
 
 - On an incoming call to the **`phone number linked`** to your application, GET `/answer` route plays a TTS greeting to the caller ("action": "talk"), then start a websocket connection to the Lex connector ("action": "connect"),
-- Once the websocket is established (GET `/ws_event` with status "answered"), play a TTS greeting to Lex bot, as Lex expects the user to speak first, we need to start the conversation as one would in a phone call, with the answerer greeting the caller. The result is that the caller with directly hear the Lex bot initial greeting (e.g. "How may I help you?") without having to say anything yet.
-You can customise that inital TTS played to Lex text to fit your Lex bot programming and use case.
+- Once the websocket is established (GET `/ws_event` with status "answered"), it plays a TTS greeting to Lex bot, as Lex expects the user to speak first, we need to start the conversation as one would do in a phone call, with the answerer greeting the caller. The result is that the caller with directly hear the Lex bot initial greeting (e.g. "How may I help you?") without having to say anything yet.
+You can customize that inital TTS played to Lex to correspond to your Lex bot programming and use case.
 - Transcript and sentiment scores will be received by this application in real time,</br>
 - When the caller hangs up, both phone call leg and websocket leg will be automatically terminated.
-
-
 
 You may look at the [range of voices available on Nexmo](https://docs.nexmo.com/voice/voice-api/ncco-reference#talk) and on Lex to select the same voice, so that it feels natural for the caller. (There is some overlap in the choice of voices available from both Nexmo and Lex.)
 
