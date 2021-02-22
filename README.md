@@ -106,9 +106,9 @@ You may select one of the following 2 types of deployments.
 
 ### Local deployment
 
-Download this sample application code to a local folder, then go to that folder.
+To run your own instance of this sample application locally, you'll need an up-to-date version of Node.js (we tested with version 14.3.0).
 
-To run your own instance locally you'll need an up-to-date version of Node.js (we tested with version 14.3.0).
+Download this sample application code to a local folder, then go to that folder.
 
 Copy the `.env.example` file over to a new file called `.env`:
 ```bash
@@ -136,6 +136,10 @@ node lex-voice-application
 ```
 
 ### Command Line Heroku deployment
+
+Install [git](https://git-scm.com/downloads).
+
+Install [Heroku command line](https://devcenter.heroku.com/categories/command-line) and login to your Heroku account.
 
 Download this sample application code to a local folder, then go to that folder.
 
