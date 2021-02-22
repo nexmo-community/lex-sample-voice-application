@@ -34,11 +34,11 @@ The Lex connector will:
 
 Once this application will be running, you call in to the **`phone number linked`** to your application (as explained below) to interact via voice with your Lex bot.</br>
 
-## Set up the Lex connector server - Public hostname and port
+## Set up the Lex connector application - Host server public hostname and port
 
-First set up a Lex connector server from https://github.com/nexmo-se/lex-connector.
+First set up a Lex connector application from https://github.com/nexmo-se/lex-connector.
 
-Default local (not public!) connector server `port` is: 5000.
+Default local (not public!) connector application `port` is: 5000.
 
 If you plan to test using `Local deployment` with ngrok for both the Lex connector application and this sample application, you may set up [multiple ngrok tunnels](https://ngrok.com/docs#multiple-tunnels).
 
@@ -46,7 +46,7 @@ For the next steps, you will need:
 - The Lex connector server's public hostname and if necessary public port,</br>
 e.g. `xxxxxxxx.ngrok.io`, `xxxxxxxx.herokuapp.com`, `myserver.mycompany.com:32000`  (as **`LEX_CONNECTOR_SERVER`**, no `port` is necessary with ngrok or heroku as public hostname)
 
-## Sample Voice API application - Public hostname and port
+## Sample Voice API application - Host server public hostname and port
 
 Default local (not public!) of this sample application `port` is: 8000.
 
