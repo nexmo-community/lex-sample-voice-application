@@ -1,14 +1,16 @@
 # Amazon Lex sample Voice API application
 
-Use this sample application using Vonage Voice API to connect to a Lex connector for voice interaction with a Lex bot, including real time transcripts and sentiment analysis.
+This sample application allows you to call a phone number to interact with an Amazon Lex bot using Vonage Voice API, including getting real time transcripts and sentiment analysis.
+
+This application uses a Lex connector application (more details below) for the actual 2-way audio interaction with the Lex bot.
 
 ## Amazon Lex access
 
-In order to get started, you will need to have an [AWS account](http://aws.amazon.com), as well as a bot on [Amazon Lex](https://aws.amazon.com/lex/).
+In order to get started, you will need to have an [AWS account](https://aws.amazon.com), as well as a bot on [Amazon Lex](https://aws.amazon.com/lex/).
 
 Use an existing Amazon Lex bot or create a new one.
 
-You will need your Lex bot name, as well as the Alias of the bot, which is located in Settings -> Aliases (when your bot page is open).
+You will need your Lex bot name, as well as the Alias of the bot, which is located under Settings -> Aliases (when your bot page is open).
 
 You will also need to know an active AWS Access Key ID and Secret Key pair.
 
@@ -32,7 +34,7 @@ The Lex connector will:
 
 Once this application will be running, you call in to the **`phone number linked`** to your application (as explained below) to interact via voice with your Lex bot.</br>
 
-## Set up the connector server - Public hostname and port
+## Set up the Lex connector server - Public hostname and port
 
 First set up a Lex connector server from https://github.com/nexmo-se/lex-connector.
 
@@ -44,9 +46,9 @@ For the next steps, you will need:
 - The Lex connector server's public hostname and if necessary public port,</br>
 e.g. `xxxxxxxx.ngrok.io`, `xxxxxxxx.herokuapp.com`, `myserver.mycompany.com:32000`  (as **`LEX_CONNECTOR_SERVER`**, no `port` is necessary with ngrok or heroku as public hostname)
 
-## Sample Voice API application public hostname and port
+## Sample Voice API application - Public hostname and port
 
-Default local (not public!) sample application `port` is: 8000.
+Default local (not public!) of this sample application `port` is: 8000.
 
 If you plan to test using `Local deployment` with ngrok for both this sample application and the Lex connector application, you may set up [multiple ngrok tunnels](https://ngrok.com/docs#multiple-tunnels).
 
@@ -69,7 +71,7 @@ Enable Voice
 IMPORTANT: Do not forget to click on [Save changes] at the bottom of the screen if you have created a new key set.</br>
 - Link a phone number to this application if none has been linked to the application.
 
-Please take note of your **application ID** and the **linked number** (as they are needed in the very next section.)
+Please take note of your **application ID** and the **linked phone number** (as they are needed in the very next section.)
 
 For the next steps, you will need:</br>
 - Your `application ID` (as **`APP_ID`**),</br>
@@ -77,29 +79,34 @@ For the next steps, you will need:</br>
 - Your [Vonage API key](https://dashboard.nexmo.com/settings) (as **`API_KEY`**)</br>
 - Your [Vonage API secret](https://dashboard.nexmo.com/settings), not signature secret, (as **`API_SECRET`**)</br>
 - The Lex connector server public hostname and port (as **`LEX_CONNECTOR_SERVER`**)</br>
+- The AWS Access Key (as **`AWS_KEY`**)</br>
+- The AWS Secret Key (as **`AWS_SECRET`**)</br>
+- The Lex bot name (as **`BOT_NAME`**)</br>
+- The Lex bot alias (as **`ALIAS`**)</br>
+
 
 ## Overview on how this sample Voice API application works
 
 - On an incoming call to the **`phone number linked`** to your application, GET `/answer` route plays a TTS greeting to the caller ("action": "talk"), then start a websocket connection to the Lex connector ("action": "connect"),
-- Once the websocket is established (GET `/ws_event` with status "answered"), it plays a TTS greeting to Lex bot, as Lex expects the user to speak first, we need to start the conversation as one would do in a phone call, with the answerer greeting the caller. The result is that the caller with directly hear the Lex bot initial greeting (e.g. "How may I help you?") without having to say anything yet.
+- Once the websocket is established (GET `/ws_event` with status "answered"), it plays a TTS greeting to Lex bot, as Lex expects the user to speak first, we need to start the conversation as one would do in a phone call, with the answerer greeting the caller. The result is that the caller will immediately hear the Lex bot initial greeting (e.g. "How may I help you?") without having to say anything yet.
 You can customize that inital TTS played to Lex to correspond to your Lex bot programming and use case.
 - Transcript and sentiment scores will be received by this application in real time,</br>
 - When the caller hangs up, both phone call leg and websocket leg will be automatically terminated.
 
 The parameter `sensitivity` allows you to set the VAD (Voice Activity Detection) sensitivity from the most sensitive (value = 0) to the least sensitive (value = 3), this is an integer value.
 
-The path portion of the uri in "action": "connect" is the same as the path to the `PostContent` [endpoint within Lex](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) but with your server host address, e.g. `xxxxx.ngrok.io`. Therefore you should set your BOTNAME, ALIAS and USER details as part of this URI. You can get these details from your AWS Console after you set up a new instance of Lex.
-USER's value may be set to any value as needed by your own application logic.
-
-Within the "headers" section of the "endpoint" you must supply your `aws_key` and `aws_secret` that will be used to connect to Amazon Lex.
-
-The `eventUrl` is where Nexmo will send events regarding the connection to the Lex Connector so that your application can be aware of the start and end of a session.
+The path portion of the uri in "action": "connect" is the same as the path to the `PostContent` [endpoint within Lex](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) but with your server host address, e.g. `xxxxx.ngrok.io`.</br>
+The *botName* is set by **`BOT_NAME`** argument,</br>
+the *botAlias* is set by **`ALIAS`** argument,</br>
+the *userId* may be set to any value as needed by your application logic, it cannot be an empty value.
 
 ## Running Lex sample Voice API application
 
 You may select one of the following 2 types of deployments.
 
 ### Local deployment
+
+Download this sample application code to a local folder, then go to that folder.
 
 To run your own instance locally you'll need an up-to-date version of Node.js (we tested with version 14.3.0).
 
@@ -130,20 +137,7 @@ node lex-voice-application
 
 ### Command Line Heroku deployment
 
-Copy the `.env.example` file over to a new file called `.env`:
-```bash
-cp .env.example .env
-```
-
-Edit `.env` file, and set the 8 parameter values:</br>
-API_KEY=</br>
-API_SECRET=</br>
-APP_ID=</br>
-LEX_CONNECTOR_SERVER=</br>
-AWS_KEY=</br>
-AWS_SECRET=</br>
-BOT_NAME=</br>
-ALIAS=</br>
+Download this sample application code to a local folder, then go to that folder.
 
 If you do not yet have a local git repository, create one:</br>
 ```bash

@@ -67,8 +67,8 @@ app.get('/answer', (req, res) => {
               "headers": {
                 "aws_key": awsKey,
                 "aws_secret": awsSecret,
-                "client_id": uuid + "_" + callerNumber,
-                "webhook_url": "https://" + hostName + "/analytics",
+                "client_id": uuid + "_" + callerNumber, // Set to any argument as needed by your application logic
+                "webhook_url": "https://" + hostName + "/analytics", // Will receive transcripts and sentiment analysis (if latter is enabled)
                 "sensitivity": 3  // Voice activity detection, possible values 0 (most sensitive) to 3 (least sensitive)
                           },          
               "type": "websocket",
