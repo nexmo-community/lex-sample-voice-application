@@ -19,7 +19,7 @@ const awsKey = process.env.AWS_KEY;
 const awsSecret = process.env.AWS_SECRET;
 const lexConnectorServer = process.env.LEX_CONNECTOR_SERVER;
 const botName = process.env.BOT_NAME;
-const pubishAlias = process.env.ALIAS;
+const publishAlias = process.env.BOT_ALIAS;
 
 const port = process.env.PORT || 8000;
 
@@ -72,7 +72,7 @@ app.get('/answer', (req, res) => {
                 "sensitivity": 3  // Voice activity detection, possible values 0 (most sensitive) to 3 (least sensitive)
                           },          
               "type": "websocket",
-              "uri": "wss://" + lexConnectorServer + "/bot/" + botName + "/alias/" + pubishAlias + "/user/" + req.query.uuid + "_" + req.query.from  + "/content"
+              "uri": "wss://" + lexConnectorServer + "/bot/" + botName + "/alias/" + publishAlias + "/user/" + req.query.uuid + "_" + req.query.from  + "/content"
             }
           ],
         "from": "12995550101",

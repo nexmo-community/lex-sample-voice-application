@@ -82,7 +82,7 @@ For the next steps, you will need:</br>
 - The AWS Access Key (as **`AWS_KEY`**)</br>
 - The AWS Secret Key (as **`AWS_SECRET`**)</br>
 - The Lex bot name (as **`BOT_NAME`**)</br>
-- The Lex bot alias (as **`ALIAS`**)</br>
+- The Lex bot alias (as **`BOT_ALIAS`**)</br>
 
 
 ## Overview on how this sample Voice API application works
@@ -97,7 +97,7 @@ The parameter `sensitivity` allows you to set the VAD (Voice Activity Detection)
 
 The path portion of the uri in "action": "connect" is the same as the path to the `PostContent` [endpoint within Lex](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) but with your server host address, e.g. `xxxxx.ngrok.io`.</br>
 The *botName* is set by **`BOT_NAME`** argument,</br>
-the *botAlias* is set by **`ALIAS`** argument,</br>
+the *botAlias* is set by **`BOT_ALIAS`** argument,</br>
 the *userId* may be set to any value as needed by your application logic, it cannot be an empty value.
 
 ## Running Lex sample Voice API application
@@ -123,7 +123,7 @@ LEX_CONNECTOR_SERVER=</br>
 AWS_KEY=</br>
 AWS_SECRET=</br>
 BOT_NAME=</br>
-ALIAS=</br>
+BOT_ALIAS=</br>
 
 Install dependencies once:
 ```bash
@@ -165,7 +165,7 @@ LEX_CONNECTOR_SERVER</br>
 AWS_KEY</br>
 AWS_SECRET</br>
 BOT_NAME</br>
-ALIAS</br>
+BOT_ALIAS</br>
 
 ```bash
 git push heroku master
