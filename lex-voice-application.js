@@ -78,7 +78,7 @@ app.get('/answer', (req, res) => {
         "from": "12995550101",
         "eventType": "synchronous",
         "eventMethod": "POST",
-        "eventUrl": ["https://" + hostName + "/ws_event?orig_uuid=' + uuid"]
+        "eventUrl": ["https://" + hostName + "/ws_event?orig_uuid=" + uuid]
       }
     ]
   );
@@ -101,7 +101,7 @@ app.post('/event', (req, res) => {
 
 //-----------
 
-app.get('/ws_event', (req, res) => {
+app.post('/ws_event', (req, res) => {
 
   if (req.body.status == "answered") {
 
@@ -114,22 +114,33 @@ app.get('/ws_event', (req, res) => {
       
         console.log (">>> Send greeting TTS");
 
-        nexmo.calls.talk.start(wsUuid, {text: 'Good morning', voiceName: 'Emma', loop: 1}, (err, res) => {
+        nexmo.calls.talk.start(wsUuid, {text: 'Good morning', voiceName: 'Joanna', loop: 1}, (err, res) => {
           if (err) { console.error('>>> TTS to bot websocket ' + wsUuid + 'error:', err); }
           else {console.log ('>>> TTS to bot websocket ' + wsUuid + ' ok!')}
         });
       
-      }, 2000);  
+      }, 500);  
 
-  }    
+  }
 
-  res.status(200).send('Ok');
+  // if (req.body.status == "answered") {
 
-});
+  //     console.log (">>> Websocket answered");
 
-//------------
+  //     res.json(
+  //       [
+  //         {
+  //           "action": "talk",
+  //           "voiceName": "Joanna",
+  //           "text": "Hello"
+  //         }
+  //       ]
+  //     );
 
-app.post('/ws_event', (req, res) => {
+  // }
+  // else {
+  //     res.json([]);   
+  // }    
 
   res.status(200).send('Ok');
 
