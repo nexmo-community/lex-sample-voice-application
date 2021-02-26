@@ -2,7 +2,7 @@
 
 This sample application allows you to call a phone number to interact with an Amazon Lex bot using Vonage Voice API, including getting real time transcripts and sentiment analysis.
 
-This application uses a Lex connector application (more details below) for the actual 2-way audio interaction with the Lex bot.
+This application uses a Lex reference connection code (more details below) for the actual 2-way audio interaction with the Lex bot.
 
 ## Amazon Lex access
 
@@ -25,32 +25,32 @@ If necessary, create a new pair of keys:
 
 ## About this sample application
 
-This sample application makes use of Vonage Voice API to answer incoming voice calls and set up a websocket connection to stream audio to and from the Lex connector for each call.
+This sample application makes use of Vonage Voice API to answer incoming voice calls and set up a websocket connection to stream audio to and from the Lex reference connection for each call.
 
-The Lex connector will:
+The Lex reference connection code will:
 - Send audio to Lex bot from caller's speech,
 - Stream audio responses from the Lex bot to the caller via the websocket,
 - Post back in real time transcripts and optionally sentiment scores (if enabled in Lex Bot) via webhooks call back to this Voice API sample application.
 
 Once this application will be running, you call in to the **`phone number linked`** to your application (as explained below) to interact via voice with your Lex bot.</br>
 
-## Set up the Lex connector application - Host server public hostname and port
+## Set up the Lex reference connection code - Host server public hostname and port
 
-First set up a Lex connector application from https://github.com/nexmo-se/lex-connector.
+First set up a Lex reference connection code from https://github.com/nexmo-se/lex-reference-connection.
 
-Default local (not public!) connector application `port` is: 5000.
+Default local (not public!) reference connection code `port` is: 5000.
 
-If you plan to test using `Local deployment` with ngrok for both the Lex connector application and this sample application, you may set up [multiple ngrok tunnels](https://ngrok.com/docs#multiple-tunnels).
+If you plan to test using `Local deployment` with ngrok for both the Lex reference connection code and this sample application, you may set up [multiple ngrok tunnels](https://ngrok.com/docs#multiple-tunnels).
 
 For the next steps, you will need:
-- The Lex connector server's public hostname and if necessary public port,</br>
-e.g. `xxxxxxxx.ngrok.io`, `xxxxxxxx.herokuapp.com`, `myserver.mycompany.com:32000`  (as **`LEX_CONNECTOR_SERVER`**, no `port` is necessary with ngrok or heroku as public hostname)
+- The Lex reference connection code server's public hostname and if necessary public port,</br>
+e.g. `xxxxxxxx.ngrok.io`, `xxxxxxxx.herokuapp.com`, `myserver.mycompany.com:32000`  (as **`LEX_REFERENCE_CONNECTION`**, no `port` is necessary with ngrok or heroku as public hostname)
 
 ## Sample Voice API application - Host server public hostname and port
 
 Default local (not public!) of this sample application `port` is: 8000.
 
-If you plan to test using `Local deployment` with ngrok for both this sample application and the Lex connector application, you may set up [multiple ngrok tunnels](https://ngrok.com/docs#multiple-tunnels).
+If you plan to test using `Local deployment` with ngrok for both this sample application and the Lex reference connection code, you may set up [multiple ngrok tunnels](https://ngrok.com/docs#multiple-tunnels).
 
 For the next steps, you will need:
 - The server's public hostname and if necessary public port on where this application is running,</br>
@@ -78,7 +78,7 @@ For the next steps, you will need:</br>
 - The **`phone number linked`** to your application (your phone will **call that number**),</br>
 - Your [Vonage API key](https://dashboard.nexmo.com/settings) (as **`API_KEY`**)</br>
 - Your [Vonage API secret](https://dashboard.nexmo.com/settings), not signature secret, (as **`API_SECRET`**)</br>
-- The Lex connector server public hostname and port (as **`LEX_CONNECTOR_SERVER`**)</br>
+- The Lex reference connection code server public hostname and port (as **`LEX_REFERENCE_CONNECTION`**)</br>
 - The AWS Access Key (as **`AWS_KEY`**)</br>
 - The AWS Secret Key (as **`AWS_SECRET`**)</br>
 - The Lex bot name (as **`BOT_NAME`**)</br>
@@ -87,7 +87,7 @@ For the next steps, you will need:</br>
 
 ## Overview on how this sample Voice API application works
 
-- On an incoming call to the **`phone number linked`** to your application, GET `/answer` route plays a TTS greeting to the caller ("action": "talk"), then start a websocket connection to the Lex connector ("action": "connect"),
+- On an incoming call to the **`phone number linked`** to your application, GET `/answer` route plays a TTS greeting to the caller ("action": "talk"), then start a websocket connection to the Lex reference connection ("action": "connect"),
 - Once the websocket is established (GET `/ws_event` with status "answered"), it plays a TTS greeting to Lex bot, as Lex expects the user to speak first, we need to start the conversation as one would do in a phone call, with the answerer greeting the caller. The result is that the caller will immediately hear the Lex bot initial greeting (e.g. "How may I help you?") without having to say anything yet.
 You can customize that inital TTS played to Lex to correspond to your Lex bot programming and use case.
 - Transcript and sentiment scores will be received by this application in real time,</br>
@@ -119,7 +119,7 @@ Edit `.env` file, and set the 8 parameter values:</br>
 API_KEY=</br>
 API_SECRET=</br>
 APP_ID=</br>
-LEX_CONNECTOR_SERVER=</br>
+LEX_REFERENCE_CONNECTION=</br>
 AWS_KEY=</br>
 AWS_SECRET=</br>
 BOT_NAME=</br>
@@ -161,7 +161,7 @@ add the following `Config Vars` and set them with their respective values:</br>
 API_KEY</br>
 API_SECRET</br>
 APP_ID</br>
-LEX_CONNECTOR_SERVER</br>
+LEX_REFERENCE_CONNECTION</br>
 AWS_KEY</br>
 AWS_SECRET</br>
 BOT_NAME</br>
