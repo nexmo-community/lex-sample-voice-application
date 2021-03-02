@@ -115,7 +115,7 @@ app.post('/ws_event', (req, res) => {
         console.log (">>> Send greeting TTS");
 
         nexmo.calls.talk.start(wsUuid, {text: 'Good morning', voiceName: 'Joanna', loop: 1}, (err, res) => {
-          if (err) { console.error('>>> TTS to bot websocket ' + wsUuid + 'error:', err); }
+          if (err) { console.error('>>> TTS to bot websocket ' + wsUuid + ' error:', err); }
           else {console.log ('>>> TTS to bot websocket ' + wsUuid + ' ok!')}
         });
       
