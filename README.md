@@ -36,7 +36,7 @@ Once this application will be running, you call in to the **`phone number linked
 
 ## Set up the Lex reference connection code - Host server public hostname and port
 
-First set up a Lex reference connection code from https://github.com/nexmo-se/lex-reference-connection.
+First set up a Lex reference connection code from https://github.com/nexmo-community/lex-reference-connection.
 
 Default local (not public!) reference connection code `port` is: 5000.
 
