@@ -17,6 +17,7 @@ const apiSecret = process.env.API_SECRET;
 const appId = process.env.APP_ID;
 const awsKey = process.env.AWS_KEY;
 const awsSecret = process.env.AWS_SECRET;
+const awsRegion = process.env.AWS_REGION;
 const lexReferenceConnection = process.env.LEX_REFERENCE_CONNECTION;
 const botName = process.env.BOT_NAME;
 const publishAlias = process.env.BOT_ALIAS;
@@ -67,6 +68,7 @@ app.get('/answer', (req, res) => {
               "headers": {
                 "aws_key": awsKey,
                 "aws_secret": awsSecret,
+                "aws_region": awsRegion,
                 "client_id": uuid + "_" + callerNumber, // Set to any argument as needed by your application logic
                 "webhook_url": "https://" + hostName + "/analytics", // Will receive transcripts and sentiment analysis (if latter is enabled)
                 "sensitivity": 3  // Voice activity detection, possible values 0 (most sensitive) to 3 (least sensitive)
