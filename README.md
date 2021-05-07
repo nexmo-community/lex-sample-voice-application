@@ -81,6 +81,7 @@ For the next steps, you will need:</br>
 - The Lex reference connection code server public hostname and port (as **`LEX_REFERENCE_CONNECTION`**)</br>
 - The AWS Access Key (as **`AWS_KEY`**)</br>
 - The AWS Secret Key (as **`AWS_SECRET`**)</br>
+- The AWS Region where your Lex bot is set up, e.g. *us-east-1* (as **`AWS_REGION`**)</br>
 - The Lex bot name (as **`BOT_NAME`**)</br>
 - The Lex bot alias (as **`BOT_ALIAS`**)</br>
 
@@ -115,13 +116,14 @@ Copy the `.env.example` file over to a new file called `.env`:
 cp .env.example .env
 ```
 
-Edit `.env` file, and set the 8 parameter values:</br>
+Edit `.env` file, and set the 9 parameter values:</br>
 API_KEY=</br>
 API_SECRET=</br>
 APP_ID=</br>
 LEX_REFERENCE_CONNECTION=</br>
 AWS_KEY=</br>
 AWS_SECRET=</br>
+AWS_REGION=</br>
 BOT_NAME=</br>
 BOT_ALIAS=</br>
 
@@ -164,6 +166,7 @@ APP_ID</br>
 LEX_REFERENCE_CONNECTION</br>
 AWS_KEY</br>
 AWS_SECRET</br>
+AWS_REGION</br>
 BOT_NAME</br>
 BOT_ALIAS</br>
 
