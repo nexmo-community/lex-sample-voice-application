@@ -81,6 +81,7 @@ For the next steps, you will need:</br>
 - The Lex reference connection code server public hostname and port (as **`LEX_REFERENCE_CONNECTION`**)</br>
 - The AWS Access Key (as **`AWS_KEY`**)</br>
 - The AWS Secret Key (as **`AWS_SECRET`**)</br>
+- The AWS Region where your Lex bot is set up, e.g. *us-east-1* (as **`AWS_REGION`**)</br>
 - The Lex bot name (as **`BOT_NAME`**)</br>
 - The Lex bot alias (as **`BOT_ALIAS`**)</br>
 
