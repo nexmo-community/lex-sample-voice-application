@@ -116,13 +116,14 @@ Copy the `.env.example` file over to a new file called `.env`:
 cp .env.example .env
 ```
 
-Edit `.env` file, and set the 8 parameter values:</br>
+Edit `.env` file, and set the 9 parameter values:</br>
 API_KEY=</br>
 API_SECRET=</br>
 APP_ID=</br>
 LEX_REFERENCE_CONNECTION=</br>
 AWS_KEY=</br>
 AWS_SECRET=</br>
+AWS_REGION=</br>
 BOT_NAME=</br>
 BOT_ALIAS=</br>
 
@@ -165,6 +166,7 @@ APP_ID</br>
 LEX_REFERENCE_CONNECTION</br>
 AWS_KEY</br>
 AWS_SECRET</br>
+AWS_REGION</br>
 BOT_NAME</br>
 BOT_ALIAS</br>
 
